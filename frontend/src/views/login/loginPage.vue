@@ -147,7 +147,7 @@ const login = async () => {
             type: 'success'
         })
         userStore.setToken(res.data.token)
-        router.push({path: '/questionnaire/createQuestionnaire'})
+        router.push({path: '/questionnaire/questionnaireSquare'})
     }
 }
 
