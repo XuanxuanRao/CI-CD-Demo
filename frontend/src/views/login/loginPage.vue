@@ -21,7 +21,7 @@ const formModel = ref({
 const rules = ref({
     username: [
         { required: true, message: '请输入用户名', trigger: 'blur' },
-        { min: 3, max: 10, message: '用户名在 3 到 10 个字符', trigger: 'blur' }
+        { min: 3, max: 15, message: '用户名在 3 到 15 个字符', trigger: 'blur' }
     ],
     email: [
         { required: true, message: '请输入邮箱', trigger: 'blur' },
