@@ -1,0 +1,36 @@
+server:
+  port: 8080
+
+
+spring:
+  application:
+    name: gateway
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 39.105.96.112:8848
+    gateway:
+      routes:
+        - id: user-service
+          uri: lb://user-service
+          predicates:
+            - Path=/user/**, /verify
+        - id: email-service
+          uri: lb://email-service
+          predicates:
+            - Path=/email/**
+
+
+survey-planet:
+  jwt:
+    location: classpath:hmall.jks
+    alias: hmall
+    password: hmall123
+    tokenTTL: 30m
+
+  auth:
+    excludePaths:
+      - /user/login
+      - /user/register
+      - /verify/**
