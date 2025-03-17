@@ -6,7 +6,7 @@ on:
       - main
     paths:
       - 'backend/**'
-      - '.github/workflows/**'
+      - '.github/workflows/deploy-backend.yml'
 
 jobs:
   build:
@@ -54,7 +54,8 @@ jobs:
           script: |
             cd /home/project
             docker compose down
-            docker pull ${{ vars.DOCKER_HUB_ADDR }}/${{ vars.DOCKER_NAMESPACE }}/gateway:latest
-            docker pull ${{ vars.DOCKER_HUB_ADDR }}/${{ vars.DOCKER_NAMESPACE }}/user-service:latest
-            docker pull ${{ vars.DOCKER_HUB_ADDR }}/${{ vars.DOCKER_NAMESPACE }}/survey-service:latest
-            docker compose up -d
+            for service in gateway user-service survey-service; do
+              docker pull ${{ vars.DOCKER_HUB_ADDR }}/${{ vars.DOCKER_NAMESPACE }}/$service:latest
+            done
+            docker compose --project-name survey-planet up -d
+
