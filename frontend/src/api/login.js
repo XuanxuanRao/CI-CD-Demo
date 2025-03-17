@@ -7,7 +7,7 @@ export const getEmailCode = (email, type) => {
         type: type
     };
     const jsonData = JSON.stringify(data)
-    return request.post('/api/common/email/code', jsonData)
+    return request.post('/api/user/common/email/code', jsonData)
 }
 
 
@@ -19,7 +19,7 @@ export const userRegisterService = (username, email, password, code) => {
         code: code
     };
     const jsonData = JSON.stringify(data)
-    return request.post('/api/register', jsonData)
+    return request.post('/api/user/register', jsonData)
 }
 
 export const userLoginService = (username, email, password) => {
@@ -29,7 +29,7 @@ export const userLoginService = (username, email, password) => {
         password: password
     };
     const jsonData = JSON.stringify(data)
-    return request.post('/api/login', jsonData)
+    return request.post('/api/user/login', jsonData)
 }
 
 export const userResetPasswordService = (email, password, code) => {
@@ -39,7 +39,7 @@ export const userResetPasswordService = (email, password, code) => {
         code: code
     };
     const jsonData = JSON.stringify(data)
-    return request.put('/api/reset', jsonData)
+    return request.put('/api/user/reset', jsonData)
 }
 
 export const getUserInformation = () => {
