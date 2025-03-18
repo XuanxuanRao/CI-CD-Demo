@@ -4,10 +4,10 @@ import { useUserStore } from "@/stores/user"
 export const getEmailCode = (email, type) => {
     const data = {
         email: email,
-        type: type
+        type: 1
     };
     const jsonData = JSON.stringify(data)
-    return request.post('/api/user/common/email/code', jsonData)
+    return request.post('/api/verify', jsonData)
 }
 
 
@@ -16,7 +16,7 @@ export const userRegisterService = (username, email, password, code) => {
         username: username,
         email: email,
         password: password,
-        code: code
+        verifyCode: code
     };
     const jsonData = JSON.stringify(data)
     return request.post('/api/user/register', jsonData)
