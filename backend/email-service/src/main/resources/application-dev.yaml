@@ -1,0 +1,4 @@
+survey-planet:
+  db:
+    host: rm-cn-em946g9ri001lhso.rwlb.rds.aliyuncs.com
+    port: 3306
