@@ -54,7 +54,7 @@ jobs:
           script: |
             cd /home/project
             docker compose down
-            for service in gateway user-service survey-service; do
+            for service in gateway user-service email-service; do
               docker pull ${{ vars.DOCKER_HUB_ADDR }}/${{ vars.DOCKER_NAMESPACE }}/$service:latest
             done
             docker compose --project-name survey-planet up -d
