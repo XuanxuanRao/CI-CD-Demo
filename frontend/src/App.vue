@@ -30,7 +30,7 @@ export default {
 <style>
 #BG{
   position: fixed;
-  width: 100%;
+  width: 80%;
   height: 100vh;
   z-index: -10;
 }
