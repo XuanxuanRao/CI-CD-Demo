@@ -30,5 +30,5 @@ public class EmailController {
         }
         return Result.success();
     }
-//Anqi test
+
 }
